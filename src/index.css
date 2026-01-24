@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Grave Finder Design System - Serene & Respectful
+   Optimized for outdoor visibility and accessibility */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core Colors - Forest Green Theme */
+    --background: 100 10% 97%;
+    --foreground: 140 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 25% 15%;
+
+    /* Primary - Forest Green */
+    --primary: 118 38% 25%;
+    --primary-foreground: 100 10% 97%;
+
+    /* Secondary - Slate Grey */
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted for subtle elements */
+    --muted: 100 8% 90%;
+    --muted-foreground: 215 12% 40%;
+
+    /* Accent - Warm Sage */
+    --accent: 120 20% 85%;
+    --accent-foreground: 118 38% 20%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 120 10% 82%;
+    --input: 120 10% 82%;
+    --ring: 118 38% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens for Grave Finder */
+    --forest: 118 38% 25%;
+    --forest-light: 118 30% 35%;
+    --forest-dark: 118 45% 18%;
+    --slate: 215 16% 47%;
+    --slate-light: 215 12% 65%;
+    --cream: 40 30% 96%;
+    --warm-white: 40 20% 98%;
+    --gold: 43 74% 49%;
+    --rose: 350 70% 65%;
+    
+    /* Navigation heights */
+    --nav-height: 4.5rem;
+    --bottom-nav-height: 5rem;
+
+    /* Sidebar defaults */
+    --sidebar-background: 100 10% 97%;
+    --sidebar-foreground: 140 25% 15%;
+    --sidebar-primary: 118 38% 25%;
+    --sidebar-primary-foreground: 100 10% 97%;
+    --sidebar-accent: 120 20% 85%;
+    --sidebar-accent-foreground: 118 38% 20%;
+    --sidebar-border: 120 10% 82%;
+    --sidebar-ring: 118 38% 25%;
+  }
+
+  .dark {
+    --background: 140 20% 8%;
+    --foreground: 100 10% 95%;
+
+    --card: 140 18% 12%;
+    --card-foreground: 100 10% 95%;
+
+    --popover: 140 18% 12%;
+    --popover-foreground: 100 10% 95%;
+
+    --primary: 118 45% 45%;
+    --primary-foreground: 140 20% 8%;
+
+    --secondary: 215 12% 35%;
+    --secondary-foreground: 100 10% 95%;
+
+    --muted: 140 15% 18%;
+    --muted-foreground: 100 8% 65%;
+
+    --accent: 120 25% 22%;
+    --accent-foreground: 100 10% 95%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 22%;
+    --input: 140 15% 22%;
+    --ring: 118 45% 45%;
+
+    --forest: 118 45% 45%;
+    --forest-light: 118 40% 55%;
+    --forest-dark: 118 50% 30%;
+    --slate: 215 12% 55%;
+    --slate-light: 215 10% 70%;
+    --cream: 40 15% 15%;
+    --warm-white: 40 10% 12%;
+
+    --sidebar-background: 140 18% 12%;
+    --sidebar-foreground: 100 10% 95%;
+    --sidebar-primary: 118 45% 45%;
+    --sidebar-primary-foreground: 140 20% 8%;
+    --sidebar-accent: 120 25% 22%;
+    --sidebar-accent-foreground: 100 10% 95%;
+    --sidebar-border: 140 15% 22%;
+    --sidebar-ring: 118 45% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', Georgia, serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* High-contrast outdoor button */
+  .btn-outdoor {
+    @apply bg-primary text-primary-foreground font-semibold py-4 px-6 rounded-xl
+           shadow-lg border-2 border-primary
+           active:scale-95 transition-all duration-200
+           min-h-[56px] text-lg;
+  }
+
+  /* Navigation card with gentle shadow */
+  .card-serene {
+    @apply bg-card rounded-2xl shadow-md border border-border/50
+           backdrop-blur-sm;
+  }
+
+  /* Large touch target for accessibility */
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px] flex items-center justify-center;
+  }
+
+  /* Tribute emoji button */
+  .tribute-btn {
+    @apply w-14 h-14 rounded-full bg-accent flex items-center justify-center
+           text-2xl shadow-sm hover:shadow-md active:scale-90
+           transition-all duration-200 border border-border/30;
+  }
+
+  /* Map overlay controls */
+  .map-control {
+    @apply bg-card/95 backdrop-blur-md shadow-xl rounded-xl
+           border border-border/50 p-2;
+  }
+
+  /* Navigation arrow container */
+  .nav-arrow-container {
+    @apply relative w-48 h-48 rounded-full
+           bg-gradient-to-br from-primary/20 to-primary/5
+           border-4 border-primary shadow-2xl
+           flex items-center justify-center;
+  }
+
+  /* Distance indicator */
+  .distance-badge {
+    @apply bg-primary text-primary-foreground font-bold
+           text-3xl py-3 px-8 rounded-2xl shadow-xl;
+  }
+
+  /* Bottom navigation */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 h-20
+           bg-card/95 backdrop-blur-lg border-t border-border
+           flex items-center justify-around px-4
+           safe-area-inset-bottom;
+  }
+
+  .bottom-nav-item {
+    @apply flex flex-col items-center justify-center gap-1
+           py-2 px-4 rounded-xl transition-colors duration-200
+           text-muted-foreground;
+  }
+
+  .bottom-nav-item.active {
+    @apply text-primary bg-accent;
+  }
+
+  /* Form inputs - large and accessible */
+  .input-accessible {
+    @apply w-full min-h-[56px] text-lg px-4 py-3
+           bg-background border-2 border-input rounded-xl
+           focus:border-primary focus:ring-2 focus:ring-primary/20
+           transition-all duration-200;
+  }
+
+  /* Panoramic viewer placeholder */
+  .panoramic-viewer {
+    @apply relative w-full aspect-[2/1] rounded-2xl overflow-hidden
+           bg-gradient-to-br from-muted to-muted/50
+           border-2 border-dashed border-border;
+  }
+
+  /* QR code container */
+  .qr-container {
+    @apply bg-white p-4 rounded-2xl shadow-lg
+           border border-border inline-block;
+  }
+
+  /* Toggle switch outdoor style */
+  .toggle-outdoor {
+    @apply relative inline-flex h-8 w-16 items-center rounded-full
+           bg-muted transition-colors
+           data-[state=checked]:bg-primary;
+  }
+}
+
+@layer utilities {
+  /* Safe area for mobile */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  /* High contrast text for outdoor */
+  .text-outdoor {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-card/80 backdrop-blur-lg;
+  }
+
+  /* Gradient backgrounds */
+  .bg-forest-gradient {
+    background: linear-gradient(135deg, hsl(var(--forest)) 0%, hsl(var(--forest-dark)) 100%);
+  }
+
+  .bg-serene-gradient {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--cream)) 100%);
+  }
+}
